@@ -22,7 +22,7 @@ public class TestController {
         TestDao<Test> dao = new TestDaoImpl();
         List<Test> list = dao.getAll();
         model.addAttribute("datalist", list);
-//        test.setId(list.get(list.size()-1).getId()+1);
+        test.setId(list.get(list.size()-1).getId()+1);
 		test.setName("");
 
         model.addAttribute("test", test);
