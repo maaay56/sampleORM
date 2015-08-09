@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="jp.co.springframework.dao.Test" table="test">
+		<id name="id" type="java.lang.Long">
+			<column name="ID" />
+			<generator class="sequence"></generator>
+		</id>
+		<property name="name" type="string">
+			<column name="NAME" length="255" />
+		</property>
+	</class>
+
+	<sql-query name="getAll">
+	<return alias="test" class="jp.co.springframework.dao.Test"/>
+	<![CDATA[
+	    SELECT
+	    	ID
+	    	,NAME
+	    FROM TEST
+	]]>
+	</sql-query>
+
+	<sql-query name="insert">
+	<![CDATA[
+	    INSERT INTO TEST(
+	    	ID,
+	    	NAME
+	    ) VALUES (
+	    	:id,
+	    	:name
+	    )
+	]]>
+	</sql-query>
+</hibernate-mapping>
